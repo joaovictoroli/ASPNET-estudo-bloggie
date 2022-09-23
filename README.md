@@ -1,2 +1,2 @@
-# C:\Users\joaov\projetos\ASPNET-estudo-bloggie
+# \ASPNET-estudo-bloggie
  //
