@@ -2017,11 +2017,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joaov\\projetos\\ASPNET-venda-de-produtos\\aspnet-blog-web\\aspnet-blog-web\\aspnet-blog-web.csproj",
+      "projectUniqueName": "C:\\Users\\joaov\\projetos\\aspnet-blog-web\\aspnet-blog-web\\aspnet-blog-web.csproj",
       "projectName": "aspnet-blog-web",
-      "projectPath": "C:\\Users\\joaov\\projetos\\ASPNET-venda-de-produtos\\aspnet-blog-web\\aspnet-blog-web\\aspnet-blog-web.csproj",
+      "projectPath": "C:\\Users\\joaov\\projetos\\aspnet-blog-web\\aspnet-blog-web\\aspnet-blog-web.csproj",
       "packagesPath": "C:\\Users\\joaov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joaov\\projetos\\ASPNET-venda-de-produtos\\aspnet-blog-web\\aspnet-blog-web\\obj\\",
+      "outputPath": "C:\\Users\\joaov\\projetos\\aspnet-blog-web\\aspnet-blog-web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\joaov\\AppData\\Roaming\\NuGet\\NuGet.Config",

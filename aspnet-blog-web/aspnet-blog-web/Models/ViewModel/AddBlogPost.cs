@@ -1,8 +1,7 @@
-﻿namespace aspnet_blog_web.Models.Domain
+﻿namespace aspnet_blog_web.Models.Domain.ViewModel
 {
-    public class BlogPost
+    public class AddBlogPost
     {
-        public Guid Id { get; set; }
         public string Heading { get; set; }
         public string PageTitle { get; set; }
         public string Content { get; set; }

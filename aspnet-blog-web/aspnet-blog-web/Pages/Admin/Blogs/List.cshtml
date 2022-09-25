@@ -1,0 +1,33 @@
+﻿@page
+@model aspnet_blog_web.Pages.Admin.Blogs.ListModel
+@{
+}
+
+
+<div class="bgalert-secondary bg-opacity-10 py-2 mb-5">
+    <div class="container">
+        <h1>Blog Posts</h1>
+    </div>
+</div>
+
+<div class="Container">
+    <table class="table">
+        <thread>
+            <tr>
+                <td>Id</td>
+                <td>Heading</td>
+                <td></td>
+            </tr>
+        </thread>
+        <tbody>
+            @foreach (var blogPost in Model.ListPosts)
+            {
+                <tr>
+                    <td>@blogPost.Id</td>
+                    <td>@blogPost.Heading</td>
+                    <td><a href="/admin/blogs/edit/@blogPost.Id">View</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
