@@ -1,5 +1,6 @@
 using aspnet_blog_web.Data;
 using aspnet_blog_web.Models.Domain;
+using aspnet_blog_web.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore.Query;
@@ -8,55 +9,34 @@ namespace aspnet_blog_web.Pages.Admin.Blogs
 {
     public class EditModel : PageModel
     {
-        private readonly BlogDbContext blogDbContext;
+        private readonly IBlogPostRepository blogPostRepository;
 
         [BindProperty]
         public BlogInPost EditablePost { get; set; }
 
-        public EditModel(BlogDbContext blogDbContext)
+        public EditModel(IBlogPostRepository blogPostRepository)
         {
-            this.blogDbContext = blogDbContext;
+            this.blogPostRepository = blogPostRepository;
         }
 
-        public void OnGet(Guid id)
+        public async Task OnGet(Guid id)
         {
-            EditablePost = blogDbContext.BlogPosts.Find(id);
-
-            //Console.WriteLine(BlogInPost.Content);
-
+            EditablePost = await blogPostRepository.GetAsync(id);
         }
 
-        public IActionResult OnPostEdit()
+        public async Task<IActionResult> OnPostEdit()
         {
-            var postToEdit = blogDbContext.BlogPosts.Find(EditablePost.Id);
-
-            if (postToEdit != null)
-            {
-                postToEdit.Heading = EditablePost.Heading;
-                postToEdit.PageTitle = EditablePost.PageTitle;
-                postToEdit.Content = EditablePost.Content;
-                postToEdit.ShortDescription = EditablePost.ShortDescription;
-                postToEdit.FeaturedImageUrl = EditablePost.FeaturedImageUrl;
-                postToEdit.UrlHandle = EditablePost.UrlHandle;
-                postToEdit.PublishedDate = EditablePost.PublishedDate;
-                postToEdit.Author = EditablePost.Author;
-                postToEdit.Visible = EditablePost.Visible;
-            }
-
-            blogDbContext.SaveChanges();
-
+            await blogPostRepository.UpdateAsync(EditablePost);
             return RedirectToPage("/admin/blogs/list");
         }
 
-        public IActionResult OnPostDelete()
+        public async Task<IActionResult> OnPostDelete()
         {
-            var existingBlog = blogDbContext.BlogPosts.Find(EditablePost.Id);
-            if (existingBlog != null)
+            var deleted = await blogPostRepository.DeleteAsync(EditablePost.Id);
+            if (deleted)
             {
-                blogDbContext.BlogPosts.Remove(existingBlog);
-                blogDbContext.SaveChanges();
-            }
-
+                return RedirectToPage("/admin/blogs/list");
+            } 
             return Page();
         }
     }

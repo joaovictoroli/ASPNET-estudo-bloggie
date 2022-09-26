@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kiYdqnwB9Lton6A/RnyOEV5xsd5fgyKCBwHkE4ABQf1yb2ePJZU5wj/AVZuOzSwRzUQqbjavgBAie2Qza1tMdg==",
+  "dgSpecHash": "NHdvD8BU0su7niIVqi5PkS1/+Y9dCKiyIBDodLZLuvQSlqx2ngmn9kEXSDKbjFpWLeHiEiWpQ0yag4bt86FxAg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\joaov\\projetos\\aspnet-blog-web\\aspnet-blog-web\\aspnet-blog-web.csproj",
+  "projectFilePath": "C:\\Users\\joaov\\projetos\\ASPNET-estudo-bloggie\\aspnet-blog-web\\aspnet-blog-web\\aspnet-blog-web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joaov\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\joaov\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -10,6 +10,9 @@
     </div>
 </div>
 
+@if (Model.ListPosts != null && Model.ListPosts.Any())
+
+{
 <div class="Container">
     <table class="table">
         <thread>
@@ -31,3 +34,9 @@
         </tbody>
     </table>
 </div>
+
+} else {
+    <div class="container">
+        <p>No blog posts were found!</p>
+    </div>
+}

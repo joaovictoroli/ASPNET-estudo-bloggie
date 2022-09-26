@@ -9,66 +9,77 @@
     </div>
 </div>
 
-<div>
-    <div class="container">
-        <form method="post">
-            <div class="mb-3">
-                <label for="heading" class="form-label">Id</label>
-                <input type="text" class="form-control" id="id" asp-for="EditablePost.Id" readonly>
-            </div>
-            <div class="mb-3">
-                <label for="heading" class="form-label">Heading</label>
-                <input type="text" class="form-control" id="heading" asp-for="EditablePost.Heading">
-            </div>
+@if (Model.EditablePost != null) {
 
-            <div class="mb-3">
-                <label for="pageTitle" class="form-label">Page Title</label>
-                <input type="text" class="form-control" id="pageTitle" asp-for="EditablePost.PageTitle">
-            </div>
+    <div>
+        <div class="container">
+            <form method="post">
+                <div class="mb-3">
+                    <label for="heading" class="form-label">Id</label>
+                    <input type="text" class="form-control" id="id" asp-for="EditablePost.Id" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="heading" class="form-label">Heading</label>
+                    <input type="text" class="form-control" id="heading" asp-for="EditablePost.Heading">
+                </div>
 
-            <div class="mb-3">
-                <label for="content" class="form-label">Content</label>
-                <textarea class="form-control" id="content" asp-for="EditablePost.Content"></textarea>
-            </div>
+                <div class="mb-3">
+                    <label for="pageTitle" class="form-label">Page Title</label>
+                    <input type="text" class="form-control" id="pageTitle" asp-for="EditablePost.PageTitle">
+                </div>
 
-            <div class="mb-3">
-                <label for="shortDescription" class="form-label">Short Description</label>
-                <input type="text" class="form-control" id="shortDescription" asp-for="EditablePost.ShortDescription">
-            </div>
+                <div class="mb-3">
+                    <label for="content" class="form-label">Content</label>
+                    <textarea class="form-control" id="content" asp-for="EditablePost.Content"></textarea>
+                </div>
 
-            <div class="mb-3">
-                <label for="featuredImageUrl" class="form-label">Featured Image</label>
-                <input type="text" class="form-control" id="featuredImageUrl" asp-for="EditablePost.FeaturedImageUrl">
-            </div>
+                <div class="mb-3">
+                    <label for="shortDescription" class="form-label">Short Description</label>
+                    <input type="text" class="form-control" id="shortDescription" asp-for="EditablePost.ShortDescription">
+                </div>
 
-            <div class="mb-3">
-                <label for="urlHandle" class="form-label">Url Handle</label>
-                <input type="text" class="form-control" id="urlHandle" asp-for="EditablePost.UrlHandle">
-            </div>
+                <div class="mb-3">
+                    <label for="featuredImageUrl" class="form-label">Featured Image</label>
+                    <input type="text" class="form-control" id="featuredImageUrl" asp-for="EditablePost.FeaturedImageUrl">
+                </div>
 
-            <div class="mb-3">
-                <label for="publishedDate" class="form-label">Publish Date</label>
-                <input type="date" class="form-control" id="publishedDate" asp-for="EditablePost.PublishedDate">
-            </div>
+                <div class="mb-3">
+                    <label for="urlHandle" class="form-label">Url Handle</label>
+                    <input type="text" class="form-control" id="urlHandle" asp-for="EditablePost.UrlHandle">
+                </div>
 
-            <div class="mb-3">
-                <label for="author" class="form-label">Author</label>
-                <input type="text" class="form-control" id="author" asp-for="EditablePost.Author">
-            </div>
+                <div class="mb-3">
+                    <label for="publishedDate" class="form-label">Publish Date</label>
+                    <input type="date" class="form-control" id="publishedDate" asp-for="EditablePost.PublishedDate">
+                </div>
 
-            <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" id="isVisible" asp-for="EditablePost.Visible">
-                <label class="form-check-label" for="isVisible">
-                    Is Visible
-                </label>
-            </div>
+                <div class="mb-3">
+                    <label for="author" class="form-label">Author</label>
+                    <input type="text" class="form-control" id="author" asp-for="EditablePost.Author">
+                </div>
 
-            <div class="mb-3 d-flex justify-content-between">
-                <button class="btn btn-primary" type="submit" asp-page-handler="Edit">Submit</button>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="isVisible" asp-for="EditablePost.Visible">
+                    <label class="form-check-label" for="isVisible">
+                        Is Visible
+                    </label>
+                </div>
 
-                <button class="btn btn-danger" type="submit" asp-page-handler="Delete">Delete</button>
-            </div>
+                <div class="mb-3 d-flex justify-content-between">
+                    <button class="btn btn-primary" type="submit" asp-page-handler="Edit">Submit</button>
 
-        </form>
+                    <button class="btn btn-danger" type="submit" asp-page-handler="Delete">Delete</button>
+                </div>
+
+            </form>
+        </div>
     </div>
-</div>
+
+} else {
+
+    <div class="container">
+        <p>Blog Post not found.</p>
+    </div>
+
+}
+

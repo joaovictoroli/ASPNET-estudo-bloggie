@@ -1,4 +1,5 @@
 using aspnet_blog_web.Data;
+using aspnet_blog_web.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<BlogDbContext>(options =>
 options.UseSqlServer(
     builder.Configuration.GetConnectionString("BlogConnectionString")));
+
+builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
 
 var app = builder.Build();
 
