@@ -44,6 +44,8 @@ namespace aspnet_blog_web.Pages.Admin.BlogPost
             };
             await blogPostRepository.AddAsync(blogPost);
 
+            TempData["MessageDescription"] = "New blog post was succesfully created!";
+
             return RedirectToPage("/admin/blogs/list");
         }
     }

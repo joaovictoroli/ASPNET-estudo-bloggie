@@ -27,7 +27,11 @@ namespace aspnet_blog_web.Pages.Admin.Blogs
         public async Task<IActionResult> OnPostEdit()
         {
             await blogPostRepository.UpdateAsync(EditablePost);
-            return RedirectToPage("/admin/blogs/list");
+
+            ViewData["MessageDescription"] = "Record was succesfully saved!";
+
+            return Page();
+            //return RedirectToPage("/admin/blogs/list");
         }
 
         public async Task<IActionResult> OnPostDelete()
