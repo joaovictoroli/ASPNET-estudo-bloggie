@@ -1,10 +1,12 @@
 using aspnet_blog_web.Data;
 using aspnet_blog_web.Models.Domain;
 using aspnet_blog_web.Models.Domain.ViewModel;
+using aspnet_blog_web.Models.ViewModel;
 using aspnet_blog_web.Repositories;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Text.Json;
 
 namespace aspnet_blog_web.Pages.Admin.BlogPost
 {
@@ -44,7 +46,13 @@ namespace aspnet_blog_web.Pages.Admin.BlogPost
             };
             await blogPostRepository.AddAsync(blogPost);
 
-            TempData["MessageDescription"] = "New blog post was succesfully created!";
+            var notification = new Notification
+            {
+                Message = "New blog created!",
+                Type = Enums.NotificationType.Success
+            };
+
+            TempData["Notification"] = JsonSerializer.Serialize(notification);
 
             return RedirectToPage("/admin/blogs/list");
         }

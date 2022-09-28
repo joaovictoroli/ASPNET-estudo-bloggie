@@ -1,9 +1,11 @@
 using aspnet_blog_web.Data;
 using aspnet_blog_web.Models.Domain;
+using aspnet_blog_web.Models.ViewModel;
 using aspnet_blog_web.Repositories;
+using aspnet_blog_web.Enums;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore.Query;
+using System.Text.Json;
 
 namespace aspnet_blog_web.Pages.Admin.Blogs
 {
@@ -26,9 +28,25 @@ namespace aspnet_blog_web.Pages.Admin.Blogs
 
         public async Task<IActionResult> OnPostEdit()
         {
-            await blogPostRepository.UpdateAsync(EditablePost);
+            try
+            {                
+                await blogPostRepository.UpdateAsync(EditablePost);
 
-            ViewData["MessageDescription"] = "Record was succesfully saved!";
+                ViewData["Notification"] = new Notification
+                {
+                    Message = "Record updated succesfully!",
+                    Type = Enums.NotificationType.Success
+                };
+            }
+            catch 
+            {
+                ViewData["Notification"] = new Notification
+                {
+                    Type = Enums.NotificationType.Error,
+                    Message = "Something went wrong!"
+                };
+            }
+            
 
             return Page();
             //return RedirectToPage("/admin/blogs/list");
@@ -39,6 +57,14 @@ namespace aspnet_blog_web.Pages.Admin.Blogs
             var deleted = await blogPostRepository.DeleteAsync(EditablePost.Id);
             if (deleted)
             {
+                var notification = new Notification
+                {
+                    Message = "Blog was deleted successfully!",
+                    Type = Enums.NotificationType.Success
+                };
+
+                TempData["Notification"] = JsonSerializer.Serialize(notification);
+
                 return RedirectToPage("/admin/blogs/list");
             } 
             return Page();

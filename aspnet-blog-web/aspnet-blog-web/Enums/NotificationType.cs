@@ -1,8 +1,8 @@
 ﻿namespace aspnet_blog_web.Enums
 {
-    public enum NoticationType
+    public enum NotificationType
     {
-        Succes,
+        Success,
         Info,
         Error
     }
