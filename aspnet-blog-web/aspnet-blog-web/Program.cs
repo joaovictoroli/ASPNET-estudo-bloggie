@@ -6,12 +6,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddControllers();
 
 builder.Services.AddDbContext<BlogDbContext>(options =>
 options.UseSqlServer(
     builder.Configuration.GetConnectionString("BlogConnectionString")));
 
 builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
+builder.Services.AddScoped<IImagesRepository, ImagesRepositoryCloudinary>();
+
 
 var app = builder.Build();
 
@@ -31,5 +34,6 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapControllers();
 
 app.Run();

@@ -16,6 +16,9 @@ namespace aspnet_blog_web.Pages.Admin.Blogs
         [BindProperty]
         public BlogInPost EditablePost { get; set; }
 
+        [BindProperty]
+        public IFormFile FeaturedImage { get; set; }
+
         public EditModel(IBlogPostRepository blogPostRepository)
         {
             this.blogPostRepository = blogPostRepository;
@@ -46,7 +49,6 @@ namespace aspnet_blog_web.Pages.Admin.Blogs
                     Message = "Something went wrong!"
                 };
             }
-            
 
             return Page();
             //return RedirectToPage("/admin/blogs/list");

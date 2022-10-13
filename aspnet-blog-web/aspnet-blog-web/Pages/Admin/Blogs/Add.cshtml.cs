@@ -21,6 +21,9 @@ namespace aspnet_blog_web.Pages.Admin.BlogPost
         [BindProperty]
         public AddBlogPost AddBlogPostRequest { get; set; }
 
+        [BindProperty]
+        public IFormFile FeaturedImage { get; set; }
+
         public AddModel(IBlogPostRepository  blogPostRepository)
         {
             this.blogPostRepository = blogPostRepository;
