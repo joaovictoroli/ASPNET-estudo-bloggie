@@ -6,6 +6,8 @@ namespace aspnet_blog_web.Repositories
     {
         Task<IEnumerable<BlogInPost>> GetAllAsync();
 
+        Task<IEnumerable<BlogInPost>> GetAllAsync(string tagName);
+
         Task<BlogInPost> GetAsync(Guid id);
 
         Task<BlogInPost> GetAsync(string urlHandle);

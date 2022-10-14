@@ -14,6 +14,7 @@ options.UseSqlServer(
 
 builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
 builder.Services.AddScoped<IImagesRepository, ImagesRepositoryCloudinary>();
+builder.Services.AddScoped<ITagRepository, TagRepository>();
 
 
 var app = builder.Build();

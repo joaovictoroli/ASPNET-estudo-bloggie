@@ -19,6 +19,9 @@ namespace aspnet_blog_web.Pages.Admin.Blogs
         [BindProperty]
         public IFormFile FeaturedImage { get; set; }
 
+        [BindProperty]
+        public string Tags { get; set; }
+
         public EditModel(IBlogPostRepository blogPostRepository)
         {
             this.blogPostRepository = blogPostRepository;
@@ -27,12 +30,19 @@ namespace aspnet_blog_web.Pages.Admin.Blogs
         public async Task OnGet(Guid id)
         {
             EditablePost = await blogPostRepository.GetAsync(id);
+            if (EditablePost != null && EditablePost.Tags != null) 
+            {
+                Tags = string.Join(',', EditablePost.Tags.Select(x => x.Name));
+            }
         }
 
         public async Task<IActionResult> OnPostEdit()
         {
             try
-            {                
+            {
+                EditablePost.Tags = new List<Tag>(Tags.Split(',').Select(x => new Tag() { Name = x.Trim() }));        
+                    //new List<Tag>(Tags.Split(',').Select(x => new Tag() { Name = x.Trim() }));
+
                 await blogPostRepository.UpdateAsync(EditablePost);
 
                 ViewData["Notification"] = new Notification
