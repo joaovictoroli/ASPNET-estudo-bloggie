@@ -43,6 +43,11 @@ namespace aspnet_blog_web.Repositories
             return await blogDbContext.BlogPosts.FindAsync(id);
         }
 
+        async Task<BlogInPost> IBlogPostRepository.GetAsync(string urlHandle)
+        {
+            return await blogDbContext.BlogPosts.FirstOrDefaultAsync(x => x.UrlHandle == urlHandle);
+        }
+
         public async Task<BlogInPost> UpdateAsync(BlogInPost EditablePost)
         {
             var postToEdit = await blogDbContext.BlogPosts.FindAsync(EditablePost.Id);
@@ -63,5 +68,6 @@ namespace aspnet_blog_web.Repositories
             await blogDbContext.SaveChangesAsync();
             return postToEdit;
         }
+
     }
 }
