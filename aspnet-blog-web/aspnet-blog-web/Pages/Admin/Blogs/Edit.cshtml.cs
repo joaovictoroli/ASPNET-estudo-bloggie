@@ -6,9 +6,11 @@ using aspnet_blog_web.Enums;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace aspnet_blog_web.Pages.Admin.Blogs
 {
+    [Authorize]
     public class EditModel : PageModel
     {
         private readonly IBlogPostRepository blogPostRepository;

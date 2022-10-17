@@ -3,6 +3,7 @@ using aspnet_blog_web.Models.Domain;
 using aspnet_blog_web.Models.Domain.ViewModel;
 using aspnet_blog_web.Models.ViewModel;
 using aspnet_blog_web.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -10,6 +11,7 @@ using System.Text.Json;
 
 namespace aspnet_blog_web.Pages.Admin.BlogPost
 {
+    [Authorize(Roles = "Admin")]
     public class AddModel : PageModel
     {
         private readonly IBlogPostRepository blogPostRepository;
