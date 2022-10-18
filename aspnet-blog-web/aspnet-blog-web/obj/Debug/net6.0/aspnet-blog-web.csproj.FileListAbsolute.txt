@@ -130,6 +130,9 @@ C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bi
 C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\aspnet-blog-web.pdb
 C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\CloudinaryDotNet.dll
 C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Humanizer.dll
+C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -137,6 +140,9 @@ C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bi
 C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.Identity.Client.dll
 C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
@@ -183,9 +189,3 @@ C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\ob
 C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\obj\Debug\net6.0\aspnet-blog-web.pdb
 C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\obj\Debug\net6.0\aspnet-blog-web.genruntimeconfig.cache
 C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\obj\Debug\net6.0\ref\aspnet-blog-web.dll
-C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
-C:\Users\joaov\projetos\ASPNET-estudo-bloggie\aspnet-blog-web\aspnet-blog-web\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll

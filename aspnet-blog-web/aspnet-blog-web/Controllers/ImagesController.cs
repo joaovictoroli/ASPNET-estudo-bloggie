@@ -16,8 +16,7 @@ namespace aspnet_blog_web.Controllers
         }
         [HttpPost]
         public async Task<IActionResult> UploadAsync(IFormFile file)
-        {
-            Console.WriteLine("Eai fi");
+        {           
             var imageUrl = await imageRepository.UploadAsync(file);
 
             if (imageUrl == null)

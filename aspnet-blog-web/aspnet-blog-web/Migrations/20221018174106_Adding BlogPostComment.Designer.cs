@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using aspnet_blog_web.Data;
 
@@ -11,9 +12,10 @@ using aspnet_blog_web.Data;
 namespace aspnet_blog_web.Migrations
 {
     [DbContext(typeof(BlogDbContext))]
-    partial class BlogDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221018174106_Adding BlogPostComment")]
+    partial class AddingBlogPostComment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,7 +71,7 @@ namespace aspnet_blog_web.Migrations
                     b.Property<Guid>("BlogInPostId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("DateAdded")
+                    b.Property<DateTime>("DayAddes")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
