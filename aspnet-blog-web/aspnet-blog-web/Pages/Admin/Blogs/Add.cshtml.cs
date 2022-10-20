@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 
 namespace aspnet_blog_web.Pages.Admin.BlogPost
@@ -16,10 +17,6 @@ namespace aspnet_blog_web.Pages.Admin.BlogPost
     {
         private readonly IBlogPostRepository blogPostRepository;
 
-        //asp-for="Heading" in inputype form
-        //[BindProperty]
-        //public string Heading { get; set; }
-
         [BindProperty]
         public AddBlogPost AddBlogPostRequest { get; set; }
 
@@ -27,6 +24,7 @@ namespace aspnet_blog_web.Pages.Admin.BlogPost
         public IFormFile FeaturedImage { get; set; }
 
         [BindProperty]
+        [Required]
         public string Tags { get; set; }
         public AddModel(IBlogPostRepository  blogPostRepository)
         {
@@ -39,30 +37,46 @@ namespace aspnet_blog_web.Pages.Admin.BlogPost
 
         public async Task<IActionResult> OnPost()
         {
-            var blogPost = new BlogInPost()
+            ValidateAddBlogPost();
+
+            if (ModelState.IsValid)
             {
-                Heading = AddBlogPostRequest.Heading,
-                PageTitle = AddBlogPostRequest.PageTitle,
-                Content = AddBlogPostRequest.Content,
-                ShortDescription = AddBlogPostRequest.ShortDescription,
-                FeaturedImageUrl = AddBlogPostRequest.FeaturedImageUrl,
-                UrlHandle = AddBlogPostRequest.UrlHandle,
-                PublishedDate = AddBlogPostRequest.PublishedDate,
-                Author = AddBlogPostRequest.Author,
-                Visible = AddBlogPostRequest.Visible,
-                Tags = new List<Tag>(Tags.Split(',').Select(x => new Tag() { Name = x.Trim() }))
-            };
-            await blogPostRepository.AddAsync(blogPost);
+                var blogPost = new BlogInPost()
+                {
+                    Heading = AddBlogPostRequest.Heading,
+                    PageTitle = AddBlogPostRequest.PageTitle,
+                    Content = AddBlogPostRequest.Content,
+                    ShortDescription = AddBlogPostRequest.ShortDescription,
+                    FeaturedImageUrl = AddBlogPostRequest.FeaturedImageUrl,
+                    UrlHandle = AddBlogPostRequest.UrlHandle,
+                    PublishedDate = AddBlogPostRequest.PublishedDate,
+                    Author = AddBlogPostRequest.Author,
+                    Visible = AddBlogPostRequest.Visible,
+                    Tags = new List<Tag>(Tags.Split(',').Select(x => new Tag() { Name = x.Trim() }))
+                };
+                await blogPostRepository.AddAsync(blogPost);
 
-            var notification = new Notification
+                var notification = new Notification
+                {
+                    Message = "New blog created!",
+                    Type = Enums.NotificationType.Success
+                };
+
+                TempData["Notification"] = JsonSerializer.Serialize(notification);
+
+                return RedirectToPage("/admin/blogs/list");
+            }
+
+            return Page();
+        }
+
+        private void ValidateAddBlogPost()
+        {
+            if(AddBlogPostRequest.PublishedDate.Date < DateTime.Now.Date)
             {
-                Message = "New blog created!",
-                Type = Enums.NotificationType.Success
-            };
-
-            TempData["Notification"] = JsonSerializer.Serialize(notification);
-
-            return RedirectToPage("/admin/blogs/list");
+                ModelState.AddModelError("AddBlogPostRequest.PublishedDate",
+                    $"{nameof(AddBlogPostRequest.PublishedDate)} can only be today's date or a future date.");
+            }
         }
     }
 }

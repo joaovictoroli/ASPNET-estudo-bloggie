@@ -1,4 +1,4 @@
-using aspnet_blog_web.Models.ViewModel;
+ using aspnet_blog_web.Models.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -23,35 +23,41 @@ namespace aspnet_blog_web.Pages
 
         public async Task<IActionResult> OnPost()
         {
-            var user = new IdentityUser
-            {
-                UserName = RegisterViewModel.Username,
-                Email = RegisterViewModel.Email,
-            };
-
-            var identityResult = await userManager.CreateAsync(user, RegisterViewModel.Password);
-            if (identityResult.Succeeded)
-            {
-                var addRoles = await userManager.AddToRoleAsync(user, "User");
-
-                if (addRoles.Succeeded)
+            if (ModelState.IsValid)
+            {            
+                var user = new IdentityUser
                 {
-                    ViewData["Notification"] = new Notification
+                    UserName = RegisterViewModel.Username,
+                    Email = RegisterViewModel.Email,
+                };
+
+                var identityResult = await userManager.CreateAsync(user, RegisterViewModel.Password);
+                if (identityResult.Succeeded)
+                {
+                    var addRoles = await userManager.AddToRoleAsync(user, "User");
+
+                    if (addRoles.Succeeded)
                     {
-                        Type = Enums.NotificationType.Success,
-                        Message = "User was registered succesfully!"
-                    };
+                        ViewData["Notification"] = new Notification
+                        {
+                            Type = Enums.NotificationType.Success,
+                            Message = "User was registered succesfully!"
+                        };
 
-                    return Page();
-                }                                  
-            } 
-            ViewData["Notification"] = new Notification
+                        return Page();
+                    }                                  
+                } 
+                ViewData["Notification"] = new Notification
+                {
+                    Type = Enums.NotificationType.Error,
+                    Message = "Something went wrong!"
+                };
+                return Page();
+            }
+            else
             {
-                Type = Enums.NotificationType.Error,
-                Message = "Something went wrong!"
-            };
-
-            return Page();
+                return Page();
+            }
         }
     }
 }
